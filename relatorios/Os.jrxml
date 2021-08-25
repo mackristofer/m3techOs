@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Os" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0d04aad8-061b-4bc9-b7fc-2cba8bbd889b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="os" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select OS.*, CLI.* from tbos as OS inner join tbclientes as CLI on (CLI.idcliente = OS.idcliente) where OS.idos = $P{os};]]>
+	</queryString>
+	<field name="idos" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dataos" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="situacao" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="equipamento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="defeito" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="servico" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tecnico" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="datadevolucao" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="foto" class="java.lang.Object">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="valor" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idcliente" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nomecliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telcliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="endcliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="emailcliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="92" height="79" uuid="0bbc54e6-3653-4549-b650-b4503e5515c8"/>
+				<imageExpression><![CDATA["C:\\Users\\m3tech\\Documents\\m3tech\\empresa.jpeg"]]></imageExpression>
+			</image>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="455" y="0" width="100" height="20" uuid="b49a7af9-3d5f-48be-917b-1bd66b363812"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="100" y="11" width="66" height="20" backcolor="#E3E3E3" uuid="896f679e-3375-4fc2-a89f-8a534a9aeebb"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº OS   ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="166" y="11" width="73" height="20" forecolor="#000000" backcolor="#E3E3E3" uuid="f6c95c67-6ae7-400a-8501-c27e289422fc"/>
+				<textElement>
+					<font fontName="Verdana" size="12" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="100" y="31" width="56" height="20" uuid="64c29760-f57b-4e7c-b6b6-6af5ef2427e6"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cliente: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="433" y="31" width="122" height="20" uuid="6932e0ff-2bba-4cf9-953b-613f3267eadf"/>
+				<textElement>
+					<font fontName="Verdana" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tecnico}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="363" y="31" width="70" height="20" uuid="1a65cb8c-4933-45a5-8703-3f0f0d021400"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Técnico: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="378" y="51" width="55" height="20" uuid="5abef804-be28-49da-be52-6e79104ce425"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="433" y="51" width="57" height="20" uuid="2af4e89f-930a-4973-a0de-3317749d55da"/>
+				<textElement>
+					<font fontName="Verdana" size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="31" width="194" height="20" uuid="a7e44e16-409b-4543-93d8-15b17fd043b7"/>
+				<textElement>
+					<font fontName="Verdana" size="11" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomecliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="156" y="51" width="100" height="20" uuid="5b67e6a4-fb8d-41e1-b1fb-e8b5bda7b428"/>
+				<textElement>
+					<font fontName="Verdana" size="11" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telcliente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="100" y="51" width="56" height="20" uuid="0143a3fa-21ce-4354-a3fa-f7d18ab60c41"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fone: ]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="28" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="62" height="20" uuid="ad29c049-4d88-4ee3-9c41-c7e31d60e46b"/>
+				<textElement>
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="166" y="0" width="94" height="20" uuid="eb8b802f-cd52-49ea-a66f-ccaed018547d"/>
+				<textElement>
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Status da OS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="1" y="20" width="155" height="20" uuid="45611a1b-81d0-4e9f-a554-ceea3b19e5cd"/>
+				<textElement>
+					<font fontName="Verdana" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="166" y="20" width="94" height="20" uuid="6b0f53ec-83a6-4aa7-a519-5f3f0eaaeb3d"/>
+				<textElement>
+					<font fontName="Verdana" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="55" width="554" height="1" uuid="baddb8b2-418c-44c7-8c8d-9f64e1084d0b"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="80" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="20" width="284" height="20" uuid="c0d9fbb5-f20c-4805-837d-339260db43e0"/>
+				<textElement>
+					<font fontName="Verdana" size="11" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{equipamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="297" y="20" width="258" height="20" uuid="df867675-b8de-44e3-bf9e-b5567ca99aa8"/>
+				<textElement>
+					<font fontName="Verdana" size="11" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{defeito}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="60" width="396" height="20" uuid="0918560f-a158-4750-af78-640964c5fe68"/>
+				<textElement>
+					<font fontName="Verdana" size="11" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{servico}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="df0f3521-737d-4ca9-872d-60e88925db72"/>
+				<textElement>
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Equipamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="297" y="0" width="100" height="20" uuid="e6560022-729a-49e0-bde1-42015ae1b30f"/>
+				<textElement>
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Defeito]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="100" height="20" uuid="f0e19711-bd38-4440-9e8f-976ffc90f605"/>
+				<textElement>
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Serviço]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="31" splitType="Stretch">
+			<line>
+				<reportElement x="1" y="19" width="554" height="1" uuid="c13b73dc-b43d-4dc0-a506-fed335d89d7a"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="6fb0ab65-bebf-429a-bb7a-7d9c9497dac5"/>
+				<textElement textAlignment="Right">
+					<font fontName="Verdana" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
